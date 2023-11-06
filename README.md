@@ -36,3 +36,7 @@
 * Vacation.java - line 37: added arguments to @OneToMany annotation
 * CartItem.java - lines 25-30: changed @OneToMany annotation to @ManyToMany and added a join table to Excursion
 * Excursion.java - lines 41-46: changed @OneToMany annotation to @ManyToMany and added a join table to CartItem
+
+### Task E
+* edu.wgu.backend.dao: deleted placeholder.md
+* edu.wgu.backend.dao: created repository interface and added cross-origin support for country, customer, division, excursion, vacation, cart, and cartitem entities

@@ -34,7 +34,6 @@ public class Excursion {
     @Column(name="last_update")
     private Date lastUpdate;
 
-    @Column(name="vacation_id")
     @ManyToOne
     private Vacation vacation;
 

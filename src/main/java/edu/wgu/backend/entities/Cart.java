@@ -38,7 +38,6 @@ public class Cart {
     @Column(name="last_update")
     private Date lastUpdate;
 
-    @Column(name="customer_id")
     @ManyToOne
     private Customer customer;
 

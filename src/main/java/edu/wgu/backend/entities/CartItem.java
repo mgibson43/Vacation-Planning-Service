@@ -18,7 +18,6 @@ public class CartItem {
     @Column(name="cart_item_id")
     private Long id;
 
-    @Column(name="vacation_id")
     @ManyToOne
     private Vacation vacation;
 
@@ -30,7 +29,6 @@ public class CartItem {
     )
     private Set<Excursion> excursions;
 
-    @Column(name="cart_id")
     @ManyToOne
     private Cart cart;
 

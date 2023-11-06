@@ -26,7 +26,6 @@ public class Division {
     @Column(name="last_update")
     private Date lastUpdate;
 
-    @Column(name="country_id")
     @ManyToOne
     private Country country;
 

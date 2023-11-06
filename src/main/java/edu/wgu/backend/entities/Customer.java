@@ -43,7 +43,7 @@ public class Customer {
     @ManyToOne
     private Division division;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<Cart> carts;
 
     public Customer() {

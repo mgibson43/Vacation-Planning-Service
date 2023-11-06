@@ -29,6 +29,7 @@ public class Cart {
     private int partySize;
 
     @Column(name="status")
+    @Enumerated
     private StatusType status;
 
     @Column(name="create_date")
@@ -41,7 +42,7 @@ public class Cart {
     @ManyToOne
     private Customer customer;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem;
 
     public Cart() {

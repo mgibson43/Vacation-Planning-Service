@@ -28,3 +28,11 @@
 * edu.wgu.backend.entities - line 4: created StatusType.java enum and added fields
 <br><br>
 * edu.wgu.backend.entities: removed placeholder.md
+<br><br>
+* Division.java - line 30: added arguments to @OneToMany annotation
+* Customer.java - line 46: added arguments to @OneToMany annotation
+* Cart.java - line 44: added arguments to @OneToMany annotation
+* Cart.java - lines 22, 25: changed vacation mapping to @ManyToOne and changed excursion mapping to @OneToMany
+* Vacation.java - line 37: added arguments to @OneToMany annotation
+* CartItem.java - lines 25-30: changed @OneToMany annotation to @ManyToMany and added a join table to Excursion
+* Excursion.java - lines 41-46: changed @OneToMany annotation to @ManyToMany and added a join table to CartItem

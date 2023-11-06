@@ -19,10 +19,15 @@ public class CartItem {
     private Long id;
 
     @Column(name="vacation_id")
-    @OneToMany
+    @ManyToOne
     private Vacation vacation;
 
-    @ManyToOne
+    @ManyToMany
+    @JoinTable(
+            name="excursion_cartitem",
+            joinColumns=@JoinColumn(name="cart_item_id"),
+            inverseJoinColumns=@JoinColumn(name="excursion_id")
+    )
     private Set<Excursion> excursions;
 
     @Column(name="cart_id")

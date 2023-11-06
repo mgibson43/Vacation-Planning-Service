@@ -27,7 +27,7 @@ public class Country {
     @Column(name="last_update")
     private Date lastUpdate;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
     private Set<Division> divisions;
 
     public Country() {

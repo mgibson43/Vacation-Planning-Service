@@ -41,7 +41,7 @@
 * edu.wgu.backend.dao: deleted placeholder.md
 * edu.wgu.backend.dao: created repository interface and added cross-origin support for country, customer, division, excursion, vacation, cart, and cartitem entities
 
-### Task D
+### Task F
 * edu.wgu.backend.services: created CheckoutService interface;
 * edu.wgu.backend.services: created CheckoutServiceImpl, Purchase, and PurchaseResponse classes
 <br><br>

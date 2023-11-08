@@ -53,3 +53,7 @@
 <br><br>
 * Purchase.java - lines 15-19: added fields for customer, cart, and cartItems
 * CheckoutServiceImpl - line 37: set cart status to ordered
+
+### Task G
+* edu.wgu.backend.entities: added nullable = false to all fields of all entities except create and update times
+

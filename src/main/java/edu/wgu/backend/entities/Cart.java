@@ -20,19 +20,19 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cart_id")
+    @Column(name="cart_id", nullable = false)
     private Long id;
 
-    @Column(name="order_tracking_number")
+    @Column(name="order_tracking_number", nullable = false)
     private String orderTrackingNumber;
 
-    @Column(name="package_price")
+    @Column(name="package_price", nullable = false)
     private BigDecimal package_price;
 
-    @Column(name="party_size")
+    @Column(name="party_size", nullable = false)
     private int party_size;
 
-    @Column(name="status")
+    @Column(name="status", nullable = false)
     @Enumerated
     private StatusType status;
 
@@ -45,7 +45,7 @@ public class Cart {
     private Date last_update;
 
     @ManyToOne
-    @JoinColumn(name="customer_id")
+    @JoinColumn(name="customer_id", nullable = false)
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")

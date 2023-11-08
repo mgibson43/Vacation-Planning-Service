@@ -19,22 +19,23 @@ public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cart_item_id")
+    @Column(name="cart_item_id", nullable = false)
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name="vacation_id", nullable = false)
     private Vacation vacation;
 
     @ManyToMany
     @JoinTable(
             name="excursion_cartitem",
-            joinColumns=@JoinColumn(name="cart_item_id"),
-            inverseJoinColumns=@JoinColumn(name="excursion_id")
+            joinColumns=@JoinColumn(name="cart_item_id", nullable = false),
+            inverseJoinColumns=@JoinColumn(name="excursion_id", nullable = false)
     )
     private Set<Excursion> excursions;
 
     @ManyToOne
-    @JoinColumn(name="cart_id")
+    @JoinColumn(name="cart_id", nullable = false)
     private Cart cart;
 
     @Column(name="create_date")

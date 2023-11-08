@@ -18,10 +18,10 @@ public class Division {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="division_id")
+    @Column(name="division_id", nullable = false)
     private Long id;
 
-    @Column(name="division")
+    @Column(name="division", nullable = false)
     private String division_name;
 
     @Column(name="create_date")
@@ -36,7 +36,7 @@ public class Division {
     @JoinColumn(name="country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
-    @Column(name="country_id")
+    @Column(name="country_id", nullable = false)
     private Long country_id;
     public void setCountry(Country country) {
         setCountry_id(country.getId());

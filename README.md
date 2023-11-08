@@ -52,4 +52,4 @@
 * PurchaseResponse.java - line 13: added field for orderTrackingNumber
 <br><br>
 * Purchase.java - lines 15-19: added fields for customer, cart, and cartItems
-
+* CheckoutServiceImpl - line 37: set cart status to ordered

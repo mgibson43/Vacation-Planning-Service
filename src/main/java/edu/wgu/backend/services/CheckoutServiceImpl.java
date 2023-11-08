@@ -1,9 +1,11 @@
 package edu.wgu.backend.services;
 
+import edu.wgu.backend.dao.CartRepository;
 import edu.wgu.backend.dao.CustomerRepository;
 import edu.wgu.backend.entities.Cart;
 import edu.wgu.backend.entities.CartItem;
 import edu.wgu.backend.entities.Customer;
+import edu.wgu.backend.entities.StatusType;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +33,8 @@ public class CheckoutServiceImpl implements CheckoutService {
         cart.setOrderTrackingNumber(orderTrackingNumber);
 
         Set<CartItem> cartItems = purchase.getCartItems();
-        cart.setCartItem(cartItems);
+        cartItems.forEach(item -> cart.getCartItem().add(item));
+        cart.setStatus(StatusType.ORDERED);
 
         Customer customer = purchase.getCustomer();
         customer.getCarts().add(cart);

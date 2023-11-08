@@ -40,3 +40,16 @@
 ### Task E
 * edu.wgu.backend.dao: deleted placeholder.md
 * edu.wgu.backend.dao: created repository interface and added cross-origin support for country, customer, division, excursion, vacation, cart, and cartitem entities
+
+### Task D
+* edu.wgu.backend.services: created CheckoutService interface;
+* edu.wgu.backend.services: created CheckoutServiceImpl, Purchase, and PurchaseResponse classes
+<br><br>
+* CheckoutService.java - line 5: added placeOrder method
+* CheckoutServiceImpl.java - lines 26-42: added method to save cart to customer and return a purchase response
+* CheckoutServiceImpl.java - lines 44-49: added method to create order tracking number
+<br><br>
+* PurchaseResponse.java - line 13: added field for orderTrackingNumber
+<br><br>
+* Purchase.java - lines 15-19: added fields for customer, cart, and cartItems
+

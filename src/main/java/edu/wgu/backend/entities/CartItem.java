@@ -2,7 +2,10 @@ package edu.wgu.backend.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
 import java.util.Set;
@@ -11,6 +14,7 @@ import java.util.Set;
 @Table(name="cart_items")
 @Getter
 @Setter
+@NoArgsConstructor
 public class CartItem {
 
     @Id
@@ -30,15 +34,14 @@ public class CartItem {
     private Set<Excursion> excursions;
 
     @ManyToOne
+    @JoinColumn(name="cart_id")
     private Cart cart;
 
     @Column(name="create_date")
+    @CreationTimestamp
     private Date createDate;
 
     @Column(name="last_update")
+    @UpdateTimestamp
     private Date lastUpdate;
-
-    public CartItem() {
-
-    }
 }

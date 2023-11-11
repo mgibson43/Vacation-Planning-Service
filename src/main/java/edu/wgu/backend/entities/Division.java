@@ -8,6 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="divisions")
@@ -21,7 +23,7 @@ public class Division {
     @Column(name="division_id", nullable = false)
     private Long id;
 
-    @Column(name="division", nullable = false)
+    @Column(name="division")
     private String division_name;
 
     @Column(name="create_date")
@@ -42,4 +44,7 @@ public class Division {
         setCountry_id(country.getId());
         this.country = country;
     }
+
+    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "division")
+    private Set<Customer> customers = new HashSet<>();
 }

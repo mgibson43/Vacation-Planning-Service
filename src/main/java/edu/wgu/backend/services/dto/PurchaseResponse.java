@@ -1,4 +1,4 @@
-package edu.wgu.backend.services;
+package edu.wgu.backend.services.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

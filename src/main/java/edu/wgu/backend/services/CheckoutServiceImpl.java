@@ -6,6 +6,8 @@ import edu.wgu.backend.entities.Cart;
 import edu.wgu.backend.entities.CartItem;
 import edu.wgu.backend.entities.Customer;
 import edu.wgu.backend.entities.StatusType;
+import edu.wgu.backend.services.dto.Purchase;
+import edu.wgu.backend.services.dto.PurchaseResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +19,11 @@ import java.util.UUID;
 public class CheckoutServiceImpl implements CheckoutService {
 
     private CustomerRepository customerRepository;
+    private CartRepository cartRepository;
 
     @Autowired
-    public CheckoutServiceImpl(CustomerRepository customerRepository) {
+    public CheckoutServiceImpl(CustomerRepository customerRepository, CartRepository cartRepository) {
+        this.cartRepository = cartRepository;
         this.customerRepository = customerRepository;
     }
 
@@ -28,26 +32,27 @@ public class CheckoutServiceImpl implements CheckoutService {
     public PurchaseResponse placeOrder(Purchase purchase) {
 
         Cart cart = purchase.getCart();
-
-        String orderTrackingNumber = getOrderTrackingNumber();
-        cart.setOrderTrackingNumber(orderTrackingNumber);
-
-        Set<CartItem> cartItems = purchase.getCartItems();
-        cartItems.forEach(item -> cart.getCartItem().add(item));
-        cart.setStatus(StatusType.ORDERED);
-
         Customer customer = purchase.getCustomer();
-        customer.getCarts().add(cart);
+        Set<CartItem> cartItems = purchase.getCartItems();
+        String orderTrackingNumber = generateOrderTrackingNumber();
 
+        cartItems.forEach(item -> {
+            item.setCart(cart);
+            cart.add(item);
+        });
+
+        cart.setOrderTrackingNumber(orderTrackingNumber);
+        cart.setStatus(StatusType.ordered);
+        customer.add(cart);
+
+        cartRepository.save(cart);
         customerRepository.save(customer);
 
         return new PurchaseResponse(orderTrackingNumber);
     }
 
-    private String getOrderTrackingNumber() {
+    private String generateOrderTrackingNumber() {
 
-        String orderTrackingNumber = UUID.randomUUID().toString();
-
-        return orderTrackingNumber;
+        return UUID.randomUUID().toString();
     }
 }

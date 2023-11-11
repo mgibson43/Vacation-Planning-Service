@@ -6,9 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,19 +23,19 @@ public class Customer {
     @Column(name="customer_id", nullable = false)
     private Long id;
 
-    @Column(name="customer_first_name", nullable = false)
+    @Column(name="customer_first_name")
     private String firstName;
 
-    @Column(name="customer_last_name", nullable = false)
+    @Column(name="customer_last_name")
     private String lastName;
 
-    @Column(name="address", nullable = false)
+    @Column(name="address")
     private String address;
 
-    @Column(name="postal_code", nullable = false)
+    @Column(name="postal_code")
     private String postal_code;
 
-    @Column(name="phone", nullable = false)
+    @Column(name="phone")
     private String phone;
 
     @Column(name="create_date")
@@ -47,9 +47,13 @@ public class Customer {
     private Date lastUpdate;
 
     @ManyToOne
-    @JoinColumn(name="division_id", nullable = false)
+    @JoinColumn(name="division_id")
     private Division division;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private Set<Cart> carts;
+    private Set<Cart> carts = new HashSet<>();
+
+    public void add(Cart cart) {
+        carts.add(cart);
+    }
 }

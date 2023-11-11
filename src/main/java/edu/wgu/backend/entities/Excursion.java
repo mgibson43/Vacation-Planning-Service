@@ -24,16 +24,16 @@ public class Excursion {
     @Column(name="excursion_id", nullable = false)
     private Long id;
 
-    @Column(name="excursion_title")
+    @Column(name="excursion_title", nullable = false)
     private String excursion_title;
 
-    @Column(name="excursion_price")
+    @Column(name="excursion_price", nullable = false)
     private BigDecimal excursion_price;
 
-    @Column(name="image_url")
+    @Column(name="image_url", nullable = false)
     private String image_URL;
 
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date create_date;
 
@@ -42,14 +42,14 @@ public class Excursion {
     private Date last_update;
 
     @ManyToOne
-    @JoinColumn(name="vacation_id")
+    @JoinColumn(name="vacation_id", nullable = false)
     private Vacation vacation_title;
 
     @ManyToMany
     @JoinTable(
             name="excursion_cartitem",
-            joinColumns=@JoinColumn(name="excursion_id"),
-            inverseJoinColumns=@JoinColumn(name="cart_item_id")
+            joinColumns=@JoinColumn(name="excursion_id", nullable = false),
+            inverseJoinColumns=@JoinColumn(name="cart_item_id", nullable = false)
     )
     private Set<CartItem> cartItems = new HashSet<>();
 }

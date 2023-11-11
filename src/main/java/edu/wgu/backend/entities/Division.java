@@ -23,14 +23,14 @@ public class Division {
     @Column(name="division_id", nullable = false)
     private Long id;
 
-    @Column(name="division")
+    @Column(name="division", nullable = false)
     private String division_name;
 
     @Column(name="create_date")
     @CreationTimestamp
     private Date createDate;
 
-    @Column(name="last_update")
+    @Column(name="last_update", updatable = false)
     @UpdateTimestamp
     private Date lastUpdate;
 
@@ -45,6 +45,6 @@ public class Division {
         this.country = country;
     }
 
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "division")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
     private Set<Customer> customers = new HashSet<>();
 }

@@ -23,10 +23,10 @@ public class Country {
     @Column(name="country_id", nullable = false)
     private Long id;
 
-    @Column(name="country")
+    @Column(name="country", nullable = false)
     private String country_name;
 
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date createDate;
 

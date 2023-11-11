@@ -24,19 +24,19 @@ public class Vacation {
     @Column(name="vacation_id", nullable = false)
     private Long id;
 
-    @Column(name="vacation_title")
+    @Column(name="vacation_title", nullable = false)
     private String vacation_title;
 
-    @Column(name="description")
+    @Column(name="description", nullable = false)
     private String description;
 
-    @Column(name="travel_fare_price")
+    @Column(name="travel_fare_price", nullable = false)
     private BigDecimal travel_price;
 
-    @Column(name="image_url")
+    @Column(name="image_url", nullable = false)
     private String image_URL;
 
-    @Column(name="create_date")
+    @Column(name="create_date", updatable = false)
     @CreationTimestamp
     private Date create_date;
 

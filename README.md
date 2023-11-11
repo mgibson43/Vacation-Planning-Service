@@ -56,7 +56,7 @@
 
 ### Task G
 * edu.wgu.backend.entities: added nullable = false to all fields of all entities except create and update times
-* edu.wgu.backend.entities: removed nullable = false to all fields of all entities except create and update times
+* edu.wgu.backend.entities: added updatable = false to the create dates of all entities
 * edu.wgu.backend.entities: changed all sets to hashsets
 * Division.java - line 49: added connection from division entity to customer entity
 

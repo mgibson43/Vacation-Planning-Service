@@ -66,3 +66,8 @@
 * CheckoutController.java lines 18-20: created CheckoutController constructor that takes in a checkout service
 * CheckoutController.java lines 22-28: Created PostMapping "/purchase" and created a placeOrder method taking a purchase from the request body and returning a purchase response
 
+### Task I
+* edu.wgu.backend: created BootStrapData.java file
+* BootStrapData.java lines 12-18: initialized fields and created a constructor for the class
+* BootStrapData.java lines 23-72: check if database is at default state, if so, adds 5 customers
+

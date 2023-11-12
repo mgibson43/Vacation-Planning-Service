@@ -1,4 +1,4 @@
-package edu.wgu.backend.services.dto;
+package edu.wgu.backend.services;
 
 import edu.wgu.backend.entities.Cart;
 import edu.wgu.backend.entities.CartItem;

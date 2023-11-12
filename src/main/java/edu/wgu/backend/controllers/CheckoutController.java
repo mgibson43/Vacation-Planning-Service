@@ -1,17 +1,14 @@
 package edu.wgu.backend.controllers;
 
 import edu.wgu.backend.services.CheckoutService;
-import edu.wgu.backend.services.dto.Purchase;
-import edu.wgu.backend.services.dto.PurchaseResponse;
+import edu.wgu.backend.services.Purchase;
+import edu.wgu.backend.services.PurchaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://localhost:4200")
-@Controller
+@RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {
 

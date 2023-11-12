@@ -60,3 +60,9 @@
 * edu.wgu.backend.entities: changed all sets to hashsets
 * Division.java - line 49: added connection from division entity to customer entity
 
+### Task H
+* edu.wgu.backend.controllers: created CheckoutController.java
+* CheckoutController.java lines 10-12: set cross origin and request mapping to "/api/checkout"
+* CheckoutController.java lines 18-20: created CheckoutController constructor that takes in a checkout service
+* CheckoutController.java lines 22-28: Created PostMapping "/purchase" and created a placeOrder method taking a purchase from the request body and returning a purchase response
+

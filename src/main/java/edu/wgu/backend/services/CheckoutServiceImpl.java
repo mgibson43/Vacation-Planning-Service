@@ -6,8 +6,6 @@ import edu.wgu.backend.entities.Cart;
 import edu.wgu.backend.entities.CartItem;
 import edu.wgu.backend.entities.Customer;
 import edu.wgu.backend.entities.StatusType;
-import edu.wgu.backend.services.dto.Purchase;
-import edu.wgu.backend.services.dto.PurchaseResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
